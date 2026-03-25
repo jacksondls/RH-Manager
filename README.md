@@ -1,53 +1,82 @@
----
+#  Sistema de Gestão de Pessoas e Salários
 
-# Desafio Estágio – ASP.NET Web Forms + Oracle
-
-## 📌 Sobre o Projeto
-
-Aplicação ASP.NET Web Forms desenvolvida para o desafio de estágio, integrada a um banco de dados Oracle.
-O objetivo principal foi **gerenciar pessoas e cargos**, além de gerar a tabela `pessoa_salario` com os salários calculados.
+Aplicação desenvolvida em ASP.NET Web Forms integrada ao Oracle Database, com foco na gestão de pessoas, cargos e cálculo de salários baseado em regras de negócio.
 
 ---
 
-## ✅ Funcionalidades Implementadas
+##  Contexto do Projeto
 
-* CRUD de **Pessoa** (Incluir, Editar, Excluir, Listar).
-* Associação de **Cargo** à Pessoa.
-* Tabela `pessoa_salario` preenchida a partir das tabelas `pessoa` e `cargo`.
-* Cálculo dos salários implementado no banco de dados.
-* Página para **listagem de salários** com opção de calcular/recalcular.
+Este projeto foi desenvolvido como parte de um desafio técnico para uma vaga de estágio, com o objetivo de simular um sistema corporativo real de gestão de funcionários.
 
-### Diferenciais incluídos
-
-* Processamento assíncrono do cálculo de salários.
 ---
 
-## ⚙️ Requisitos
+##  Funcionalidades
 
-* Oracle Database 11g ou superior.
-* Visual Studio 2019/2022 com suporte a **ASP.NET Web Forms**.
-* .NET Framework 4.7.2 ou superior.
-* Pacote **Oracle.ManagedDataAccess** instalado via NuGet.
+*  CRUD completo de Pessoas (Cadastro, edição, exclusão e listagem)
+*  Associação de Pessoas a Cargos
+*  Geração da tabela `pessoa_salario`
+*  Cálculo de salários realizado diretamente no banco de dados
+*  Tela de listagem de salários
+*  Reprocessamento de salários sob demanda
+
 ---
 
-## 🚀 Como Executar Localmente
+##  Diferenciais
 
-1. Clone este repositório:
+* Processamento assíncrono para cálculo de salários
+* Separação de responsabilidades entre aplicação e banco de dados
+* Uso de procedures para lógica de negócio
 
-   ```bash
-   git clone https://github.com/seuusuario/DesafioEstagio.git
-   ```
-2. Abra o projeto no **Visual Studio** (`.sln`).
-3. Configure a **Connection String** no `Web.config` com os dados do seu Oracle:
-
-   ```xml
-   <connectionStrings>
-     <add name="OracleDB" 
-          connectionString="User Id=SEU_USUARIO;Password=SUA_SENHA;Data Source=localhost:1521/XEPDB1;" 
-          providerName="Oracle.ManagedDataAccess.Client" />
-   </connectionStrings>
-   ```
-4. Execute os scripts SQL (tabelas e inserts) disponíveis na pasta `/Database`.
-5. Pressione **F5** para rodar a aplicação.
 ---
 
+##  Tecnologias utilizadas
+
+* ASP.NET Web Forms
+* C#
+* Oracle Database (11g+)
+* Oracle.ManagedDataAccess
+* .NET Framework
+
+---
+
+##  Como executar o projeto
+
+### 1. Clonar o repositório
+
+```bash
+git clone https://github.com/seuusuario/DesafioEstagio.git
+```
+
+### 2. Configurar o banco de dados
+
+Atualize a connection string no arquivo `Web.config`:
+
+```xml
+<connectionStrings>
+  <add name="OracleDB" 
+       connectionString="User Id=SEU_USUARIO;Password=SUA_SENHA;Data Source=localhost:1521/XEPDB1;" 
+       providerName="Oracle.ManagedDataAccess.Client" />
+</connectionStrings>
+```
+
+### 3. Executar scripts SQL
+
+Execute os scripts disponíveis na pasta `/Database`.
+
+### 4. Rodar o projeto
+
+Abra no Visual Studio e pressione `F5`.
+
+---
+
+##  Principais desafios
+
+* Implementar o cálculo de salários diretamente no banco de dados
+* Garantir consistência entre tabelas relacionadas
+* Integrar ASP.NET Web Forms com Oracle
+
+---
+
+##  Autor
+
+Desenvolvido por Jackson Douglas 
