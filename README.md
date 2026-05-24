@@ -44,7 +44,7 @@ Este projeto foi desenvolvido como parte de um desafio técnico para uma vaga de
 ### 1. Clonar o repositório
 
 ```bash
-git clone https://github.com/seuusuario/DesafioEstagio.git
+git clone https://github.com/seuusuario/RHManager.git
 ```
 
 ### 2. Configurar o banco de dados
@@ -58,12 +58,7 @@ Atualize a connection string no arquivo `Web.config`:
        providerName="Oracle.ManagedDataAccess.Client" />
 </connectionStrings>
 ```
-
-### 3. Executar scripts SQL
-
-Execute os scripts disponíveis na pasta `/Database`.
-
-### 4. Rodar o projeto
+### 3. Rodar o projeto
 
 Abra no Visual Studio e pressione `F5`.
 
