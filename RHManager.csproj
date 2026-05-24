@@ -242,12 +242,12 @@
     <Compile Include="Pessoas.aspx.designer.cs">
       <DependentUpon>Pessoas.aspx</DependentUpon>
     </Compile>
-    <Compile Include="desafioEstagio_Salarios.aspx.cs">
-      <DependentUpon>desafioEstagio_Salarios.aspx</DependentUpon>
+    <Compile Include="Salarios.aspx.cs">
+      <DependentUpon>Salarios.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="desafioEstagio_Salarios.aspx.designer.cs">
-      <DependentUpon>desafioEstagio_Salarios.aspx</DependentUpon>
+    <Compile Include="Salarios.aspx.designer.cs">
+      <DependentUpon>Salarios.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Contact.aspx.cs">

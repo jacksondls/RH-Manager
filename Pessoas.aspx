@@ -1,5 +1,5 @@
 ﻿<%@ Page Title="Cadastro/Editar Pessoas" Language="C#" MasterPageFile="~/Site.Master" 
-    AutoEventWireup="true" CodeBehind="Pessoas.aspx.cs" Inherits="DesafioEstagio.Pessoas" %>
+    AutoEventWireup="true" CodeBehind="Pessoas.aspx.cs" Inherits="Pessoas" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <h2>Cadastro/Edição de Pessoas</h2>

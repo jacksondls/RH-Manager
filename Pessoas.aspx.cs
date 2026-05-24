@@ -4,7 +4,7 @@ using System.Data;
 using Oracle.ManagedDataAccess.Client;
 using System.Web.UI.WebControls;
 
-namespace DesafioEstagio
+namespace RHManager
 {
     public partial class Pessoas : System.Web.UI.Page
     {

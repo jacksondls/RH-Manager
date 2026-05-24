@@ -1,5 +1,5 @@
 ﻿<%@ Page Title="Salários" Language="C#" MasterPageFile="~/Site.Master" 
-    AutoEventWireup="true" CodeBehind="desafioEstagio_Salarios.aspx.cs" 
+    AutoEventWireup="true" CodeBehind="Salarios.aspx.cs" 
     Inherits="DesafioEstagio.Salarios" Async="true" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">

@@ -1,1 +1,1 @@
-﻿<%@ Application Codebehind="Global.asax.cs" Inherits="DesafioEstagio.Global" Language="C#" %>
+﻿<%@ Application Codebehind="Global.asax.cs" Inherits="RHManager.Global" Language="C#" %>

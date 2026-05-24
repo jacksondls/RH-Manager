@@ -5,8 +5,7 @@ using System.Configuration;
 using System.Threading.Tasks;
 using System.Web.UI;
 
-namespace DesafioEstagio
-{
+namespace RHManager{
     public partial class Salarios : Page
     {
         string connectionString = ConfigurationManager.ConnectionStrings["OracleDB"].ConnectionString;
