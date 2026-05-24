@@ -55,34 +55,6 @@ namespace RHManager{
             }
         }
 
-        // Inclui uma nova pessoa
-        protected async void BtnIncluir_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                using (var conn = new OracleConnection(connectionString))
-                {
-                    await conn.OpenAsync();
-                    string sql = "INSERT INTO pessoa (pessoa_nome, cargo_id) VALUES (:nome, :cargo_id)";
-                    using (var cmd = new OracleCommand(sql, conn))
-                    {
-                        cmd.Parameters.Add(new OracleParameter("nome", TxtNome.Text));
-                        cmd.Parameters.Add(new OracleParameter("cargo_id", DDLcargo.SelectedValue));
-                        await cmd.ExecuteNonQueryAsync();
-                    }
-                }
-
-                lblMensagem.Text = "Pessoa incluída com sucesso!";
-                TxtNome.Text = "";
-                DDLcargo.SelectedIndex = 0;
-                await CarregarSalariosAsync();
-            }
-            catch (Exception ex)
-            {
-                lblMensagem.Text = "Erro: " + ex.Message;
-            }
-        }
-
         // Recalcula salários chamando a procedure Oracle
         protected async void BtnCalcular_Click(object sender, EventArgs e)
         {

@@ -60,24 +60,41 @@ namespace RHManager
 
                 // Gerar novo ID manualmente
                 int novoId;
-                using (OracleCommand cmdId = new OracleCommand("SELECT NVL(MAX(pessoa_id),0)+1 FROM pessoa", con))
+                using (OracleCommand cmdId = new OracleCommand("SELECT seq_pessoa_id.NEXTVAL FROM dual", con))
                 {
                     novoId = Convert.ToInt32(cmdId.ExecuteScalar());
                 }
 
-                // Inserir pessoa com o novo ID
-                string query = "INSERT INTO pessoa (pessoa_id, pessoa_nome, cargo_id) VALUES (:id, :nome, :cargo_id)";
-                using (OracleCommand cmd = new OracleCommand(query, con))
+
+                // Inclui uma nova pessoa
+        protected async void BtnIncluir_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                using (var conn = new OracleConnection(connectionString))
                 {
-                    cmd.Parameters.Add(":id", OracleDbType.Int32).Value = novoId;
-                    cmd.Parameters.Add(":nome", OracleDbType.Varchar2).Value = TxtNome.Text.Trim();
-                    cmd.Parameters.Add(":cargo_id", OracleDbType.Int32).Value = Convert.ToInt32(DDLcargo.SelectedValue);
-
-                    cmd.ExecuteNonQuery();
+                    await conn.OpenAsync();
+                    string sql = "INSERT INTO pessoa (pessoa_nome, cargo_id) VALUES (:nome, :cargo_id)";
+                    using (var cmd = new OracleCommand(sql, conn))
+                    {
+                        cmd.Parameters.Add(new OracleParameter("nome", TxtNome.Text));
+                        cmd.Parameters.Add(new OracleParameter("cargo_id", DDLcargo.SelectedValue));
+                        await cmd.ExecuteNonQueryAsync();
+                    }
                 }
-            }
 
-            CarregarPessoas();
+                lblMensagem.Text = "Pessoa incluída com sucesso!";
+                TxtNome.Text = "";
+                DDLcargo.SelectedIndex = 0;
+                await CarregarSalariosAsync();
+            }
+            catch (Exception ex)
+            {
+                lblMensagem.Text = "Erro: " + ex.Message;
+            }
+        }
+
+        CarregarPessoas();
         }
 
         protected void GridViewPessoa_RowEditing(object sender, GridViewEditEventArgs e)
