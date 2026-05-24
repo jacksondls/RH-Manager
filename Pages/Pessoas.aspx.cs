@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Configuration;
-using System.Data;
 using Oracle.ManagedDataAccess.Client;
 using System.Web.UI.WebControls;
 
