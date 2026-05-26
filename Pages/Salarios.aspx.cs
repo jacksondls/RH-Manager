@@ -3,6 +3,7 @@ using System;
 using System.Data;
 using System.Configuration;
 using System.Web.UI;
+using System.Threading.Tasks;
 
 namespace RHManager{
     public partial class Salarios : Page

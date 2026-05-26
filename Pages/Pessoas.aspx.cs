@@ -87,7 +87,7 @@ namespace RHManager
             }
             catch (Exception ex)
             {
-                LblErro.Text = "Erro ao incluir pessoa. Tente novamente.";
+                LblErro.Text = "Erro ao abrir edição: " + ex.Message;
             }
         }
 
@@ -122,7 +122,7 @@ namespace RHManager
             }
             catch (Exception ex)
             {
-                LblErro.Text = "Erro ao abrir edição. Tente novamente.";
+                LblErro.Text = "Erro ao abrir edição: " + ex.Message;
             }
         }
 
@@ -136,7 +136,7 @@ namespace RHManager
             }
             catch (Exception ex)
             {
-                LblErro.Text = "Erro ao cancelar edição. Tente novamente.";
+                LblErro.Text = "Erro ao abrir edição: " + ex.Message;
             }
         }
 
@@ -171,7 +171,7 @@ namespace RHManager
             }
             catch (Exception ex)
             {
-                LblErro.Text = "Erro ao atualizar pessoa. Tente novamente.";
+                LblErro.Text = "Erro ao abrir edição: " + ex.Message;
             }
         }
 
@@ -197,7 +197,7 @@ namespace RHManager
             }
             catch (Exception ex)
             {
-                LblErro.Text = "Erro ao excluir pessoa. Tente novamente.";
+                LblErro.Text = "Erro ao abrir edição: " + ex.Message;
             }
         }
 

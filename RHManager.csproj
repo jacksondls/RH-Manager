@@ -297,7 +297,6 @@
 
 		<!-- Models -->
 		<Compile Include="Models\PessoaBase.cs" />
-		<Compile Include="Models\PessoaBaseBase.cs" />
 
 		<!-- App_Start e demais -->
 		<Compile Include="App_Start\BundleConfig.cs" />
