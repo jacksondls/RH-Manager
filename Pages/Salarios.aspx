@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Salários" Language="C#" MasterPageFile="~/Site.Master" 
+﻿<%@ Page Title="Salários" Language="C#" MasterPageFile="~/Layout/Site.Master" 
     AutoEventWireup="true" CodeBehind="Salarios.aspx.cs" 
     Inherits="DesafioEstagio.Salarios" Async="true" %>
 

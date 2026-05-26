@@ -82,46 +82,62 @@ namespace RHManager
 
                 TxtNome.Text = "";
                 DDLcargo.SelectedIndex = 0;
+                LblErro.Text = "";
                 CarregarPessoas();
             }
             catch (Exception ex)
             {
-                throw;
+                LblErro.Text = "Erro ao incluir pessoa. Tente novamente.";
             }
         }
 
         protected void GridViewPessoa_RowEditing(object sender, GridViewEditEventArgs e)
         {
-            GridViewPessoa.EditIndex = e.NewEditIndex;
-            CarregarPessoas();
-
-            DropDownList ddlCargoEdit = (DropDownList)GridViewPessoa.Rows[e.NewEditIndex].FindControl("DDLcargoEdit");
-            if (ddlCargoEdit != null)
+            try
             {
-                using (OracleConnection con = new OracleConnection(strConexao))
+                GridViewPessoa.EditIndex = e.NewEditIndex;
+                CarregarPessoas();
+
+                DropDownList ddlCargoEdit = (DropDownList)GridViewPessoa.Rows[e.NewEditIndex].FindControl("DDLcargoEdit");
+                if (ddlCargoEdit != null)
                 {
-                    string query = "SELECT cargo_id, cargo_nome FROM cargo";
-                    OracleDataAdapter da = new OracleDataAdapter(query, con);
-
-                    using (DataTable dt = new DataTable())
+                    using (OracleConnection con = new OracleConnection(strConexao))
                     {
-                        da.Fill(dt);
-                        ddlCargoEdit.DataSource = dt;
-                        ddlCargoEdit.DataTextField = "cargo_nome";
-                        ddlCargoEdit.DataValueField = "cargo_id";
-                        ddlCargoEdit.DataBind();
-                    }
-                }
+                        string query = "SELECT cargo_id, cargo_nome FROM cargo";
+                        OracleDataAdapter da = new OracleDataAdapter(query, con);
 
-                int cargoIdAtual = Convert.ToInt32(GridViewPessoa.DataKeys[e.NewEditIndex]["cargo_id"]);
-                ddlCargoEdit.SelectedValue = cargoIdAtual.ToString();
+                        using (DataTable dt = new DataTable())
+                        {
+                            da.Fill(dt);
+                            ddlCargoEdit.DataSource = dt;
+                            ddlCargoEdit.DataTextField = "cargo_nome";
+                            ddlCargoEdit.DataValueField = "cargo_id";
+                            ddlCargoEdit.DataBind();
+                        }
+                    }
+
+                    int cargoIdAtual = Convert.ToInt32(GridViewPessoa.DataKeys[e.NewEditIndex]["cargo_id"]);
+                    ddlCargoEdit.SelectedValue = cargoIdAtual.ToString();
+                }
+            }
+            catch (Exception ex)
+            {
+                LblErro.Text = "Erro ao abrir edição. Tente novamente.";
             }
         }
 
         protected void GridViewPessoa_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
         {
-            GridViewPessoa.EditIndex = -1;
-            CarregarPessoas();
+            try
+            {
+                GridViewPessoa.EditIndex = -1;
+                LblErro.Text = "";
+                CarregarPessoas();
+            }
+            catch (Exception ex)
+            {
+                LblErro.Text = "Erro ao cancelar edição. Tente novamente.";
+            }
         }
 
         protected void GridViewPessoa_RowUpdating(object sender, GridViewUpdateEventArgs e)
@@ -150,11 +166,12 @@ namespace RHManager
                 }
 
                 GridViewPessoa.EditIndex = -1;
+                LblErro.Text = "";
                 CarregarPessoas();
             }
             catch (Exception ex)
             {
-                throw;
+                LblErro.Text = "Erro ao atualizar pessoa. Tente novamente.";
             }
         }
 
@@ -175,11 +192,12 @@ namespace RHManager
                     }
                 }
 
+                LblErro.Text = "";
                 CarregarPessoas();
             }
             catch (Exception ex)
             {
-                throw;
+                LblErro.Text = "Erro ao excluir pessoa. Tente novamente.";
             }
         }
 
